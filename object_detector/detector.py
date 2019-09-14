@@ -75,10 +75,10 @@ def detector(filename):
 
     rects = np.array([[x, y, x + w, y + h] for (x, y, _, w, h) in detections])
     sc = [score[0] for (x, y, score, w, h) in detections]
-    print "sc: ", sc
+    print ("sc: ", sc)
     sc = np.array(sc)
     pick = non_max_suppression(rects, probs = sc, overlapThresh = 0.3)
-    print "shape, ", pick.shape
+    print ("shape, ", pick.shape)
 
     for(xA, yA, xB, yB) in pick:
         cv2.rectangle(clone, (xA, yA), (xB, yB), (0, 255, 0), 2)
